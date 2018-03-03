@@ -4,7 +4,7 @@
 
 ## ArrowComp.hs
 
-这是一个 [`Arrow` 教程](https://karczmarczuk:users:greyc:fr/TEACH/Stage/ArrComp:pdf)的练习答案。
+这是一个 [`Arrow` 教程](https://karczmarczuk:users:greyc:fr/TEACH/Stage/ArrComp.pdf)的练习答案。
 
 ## Exam.hs
 
