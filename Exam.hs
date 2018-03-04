@@ -28,15 +28,16 @@ solves = do
     s10 <- [(1,3),(2,2),(3,4),(4,1)]
     let s10' = fst s10
     let ss = [0, s1',s2',s3',s4',s5',s6',s7',s8',s9',s10']
+    let count = sortWith snd $ [(x, length $ filter (== x) ss) | x <- [1..4]]
     guard $ snd s1 == fst s1
     guard $ snd s2 == fst s5
     guard $ notElem (ss !! snd s3) $ map (ss !!) $ filter (/= snd s3) [3,6,2,4]
     guard $ ss !! fst (snd s4) == ss !! snd (snd s4)
     guard $ fst s5 == ss !! snd s5
     guard $ s8' == ss !! fst (snd s6) && s8' == ss !! snd (snd s6)
-    guard $ head (head $ sortWith length $ group $ sort $ tail ss) == snd s7
+    guard $ fst (head count) == snd s7
     guard $ (ss !! snd s8 - s1') `notElem` [1, -1]
     guard $ (s1' == s6') /= (s5' == ss !! snd s9)
-    guard $ let sss = (sortWith length $ group $ sort $ tail ss) 
-            in length (last sss) - length (head sss) == snd s10
+    guard $ snd (last count) - snd (head count) == snd s10
     pure $ tail ss
+
